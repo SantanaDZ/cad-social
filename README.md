@@ -11,7 +11,7 @@ O sistema utiliza um formulário inteligente dividido em três etapas principais
 3.  **Dados Socioeconômicos**: Coleta de informações sobre renda familiar, despesas, escolaridade, situação de moradia e benefícios ativos.
 
 ### 🛡️ Níveis de Acesso (RBAC)
-*   **Cidadão (User)**: Pode realizar seu próprio cadastro e acompanhar o status de suas solicitações. Tem acesso restrito apenas aos seus próprios dados.
+*   **Usuário**: Pode realizar cadastros e acompanhar o status de suas solicitações. Tem acesso restrito apenas aos seus próprios dados.
 *   **Administrador**: Possui visão global de todas as inscrições, podendo filtrar por solicitante, analisar documentos e alterar o status da inscrição (Pendente, Aprovado ou Rejeitado).
 
 ### 📶 Suporte Offline
@@ -39,18 +39,22 @@ Visualização detalhada de cada registro, otimizada para impressão de fichas d
 
 ### Pré-requisitos
 *   Node.js instalado
-*   Uma conta no Supabase
+*   Uma conta no Supabase (**opcional**: apenas se desejar criar seu próprio banco de dados. Para fins de teste, recomenda-se utilizar o banco já configurado abaixo).
 
 ### Variáveis de Ambiente
 Crie um arquivo `.env.local` na raiz do projeto com as seguintes chaves:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://gzogswhcipgufxapexnx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6b2dzd2hjaXBndWZ4YXBleG54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MDM4ODIsImV4cCI6MjA4NzQ3OTg4Mn0.-lYstYH6oZz1Q7NztTsapheqM8OJ2E4A3m8MKcTp_F0
-
 ```
 
-### Inicialização do Banco de Dados
-Os scripts SQL necessários para criar as tabelas (`inscricoes`, `profiles`) e configurar as políticas de segurança (RLS) estão localizados na pasta `scripts/`. Recomenda-se executá-los na ordem numérica:
+> [!TIP]
+> **Recomendado**: Utilize as chaves acima que já estão configuradas para o ambiente de testes acadêmico. Você só precisa alterá-las se optar por configurar seu próprio projeto no Supabase.
+
+### Inicialização do Banco de Dados (**Apenas para novos bancos**)
+Os scripts SQL necessários para criar as tabelas (`inscricoes`, `profiles`) e configurar as políticas de segurança (RLS) estão localizados na pasta `scripts/`. **Caso opte por usar o ambiente recomendado acima, este passo não é necessário.**
+
+Se for criar um novo banco, execute-os na ordem numérica:
 1. `001_create_inscricoes.sql`
 2. `002_updated_at_trigger.sql`
 3. `003_create_profiles.sql`
@@ -75,5 +79,22 @@ Os scripts SQL necessários para criar as tabelas (`inscricoes`, `profiles`) e c
 
 ---
 
-## 📄 Licença
-Este projeto foi desenvolvido para fins de gerenciamento governamental e social.
+## � Contas para Teste (Ambiente Fictício)
+
+Para fins acadêmicos e de demonstração, utilize as credenciais abaixo para acessar os diferentes níveis do sistema. 
+
+> [!NOTE]
+> Todos os dados e contas são fictícios. As senhas padrão para estas contas são `123456` (ou a senha que você configurou no Supabase).
+
+### 🔑 Administrador
+*   **Login:** `adm@email.com`
+*   **Senha:** `123456`
+
+### 👤 Usuário Comum (Cidadão)
+*   **Login:** `user@email.com`
+*   **Senha:** `123456`
+
+---
+
+## �📄 Licença
+Este projeto foi desenvolvido para fins acadêmicos e de demonstração.
