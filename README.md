@@ -44,8 +44,9 @@ Visualização detalhada de cada registro, otimizada para impressão de fichas d
 ### Variáveis de Ambiente
 Crie um arquivo `.env.local` na raiz do projeto com as seguintes chaves:
 ```env
-NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anon_key
+NEXT_PUBLIC_SUPABASE_URL=https://gzogswhcipgufxapexnx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6b2dzd2hjaXBndWZ4YXBleG54Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5MDM4ODIsImV4cCI6MjA4NzQ3OTg4Mn0.-lYstYH6oZz1Q7NztTsapheqM8OJ2E4A3m8MKcTp_F0
+
 ```
 
 ### Inicialização do Banco de Dados
