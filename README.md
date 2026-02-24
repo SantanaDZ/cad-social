@@ -20,8 +20,8 @@ O sistema conta com um gerenciador de sincronização inteligente. Se o usuário
 ### 📊 Painel Administrativo
 Visualização clara do status de todos os registros, com sistema de busca e identificação por cores (badges) para facilitar a gestão rápida.
 
-### 🖨️ Ficha de Inscrição
-Visualização detalhada de cada registro, otimizada para impressão de fichas de acompanhamento.
+### 🖨️ Ficha de Inscrição em PDF
+Visualização detalhada de cada registro, otimizada para impressão de fichas de acompanhamento (PDF).
 
 ---
 
@@ -88,11 +88,11 @@ Para fins acadêmicos e de demonstração, utilize as credenciais abaixo para ac
 
 ### 🔑 Administrador
 *   **Login:** `adm@email.com`
-*   **Senha:** `123456`
+*   **Senha:** `cadsocial`
 
-### 👤 Usuário Comum (Cidadão)
+### 👤 Usuário Comum 
 *   **Login:** `user@email.com`
-*   **Senha:** `123456`
+*   **Senha:** `cadsocial`
 
 ---
 
