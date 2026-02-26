@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 import Link from "next/link"
-import { ShieldCheck, ClipboardList, Users, ArrowRight } from "lucide-react"
+import { ShieldCheck, ClipboardList, Users, ArrowRight, BookOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default async function HomePage() {
@@ -34,7 +34,12 @@ export default async function HomePage() {
             <ShieldCheck className="h-4 w-4" />
             Sistema Governamental
           </div>
-          <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">
+          <h1 className="flex items-center justify-center gap-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">
+            <img
+              src="/icons8-brazil-48.png"
+              alt="Bandeira do Brasil"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover shadow-sm"
+            />
             Cadastro de Programas Sociais
           </h1>
           <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -54,6 +59,16 @@ export default async function HomePage() {
               </Button>
             </Link>
           </div>
+          <div className="mt-5">
+            <Link
+              href="/manual"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground underline underline-offset-4 hover:text-primary transition-colors"
+            >
+              <BookOpen className="h-3.5 w-3.5" />
+              Como utilizar o sistema
+            </Link>
+          </div>
+
         </div>
       </section>
 

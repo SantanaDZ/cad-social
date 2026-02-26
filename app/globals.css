@@ -10,10 +10,10 @@
   --card-foreground: oklch(0.18 0.02 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 240);
-  --primary: oklch(0.45 0.12 240);
+  --primary: #1351B4;
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.92 0.02 160);
-  --secondary-foreground: oklch(0.25 0.05 160);
+  --secondary: #004587;
+  --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.95 0.01 230);
   --muted-foreground: oklch(0.5 0.02 240);
   --accent: oklch(0.55 0.12 160);
@@ -28,7 +28,7 @@
   --chart-3: oklch(0.65 0.15 240);
   --chart-4: oklch(0.7 0.1 160);
   --chart-5: oklch(0.35 0.08 240);
-  --radius: 0.75rem;
+  --radius: 0.5rem;
   --sidebar: oklch(0.25 0.06 240);
   --sidebar-foreground: oklch(0.95 0.01 230);
   --sidebar-primary: oklch(0.65 0.15 240);
@@ -37,7 +37,7 @@
   --sidebar-accent-foreground: oklch(0.95 0.01 230);
   --sidebar-border: oklch(0.35 0.04 240);
   --sidebar-ring: oklch(0.65 0.15 240);
-  --success: oklch(0.55 0.15 155);
+  --success: #008D46;
   --success-foreground: oklch(0.99 0 0);
   --warning: oklch(0.75 0.15 75);
   --warning-foreground: oklch(0.25 0.05 75);
@@ -50,10 +50,10 @@
   --card-foreground: oklch(0.95 0.01 230);
   --popover: oklch(0.22 0.02 240);
   --popover-foreground: oklch(0.95 0.01 230);
-  --primary: oklch(0.65 0.15 240);
+  --primary: #1351B4;
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.3 0.04 240);
-  --secondary-foreground: oklch(0.95 0.01 230);
+  --secondary: #004587;
+  --secondary-foreground: oklch(0.99 0 0);
   --muted: oklch(0.3 0.02 240);
   --muted-foreground: oklch(0.65 0.02 240);
   --accent: oklch(0.55 0.12 160);
@@ -76,14 +76,14 @@
   --sidebar-accent-foreground: oklch(0.95 0.01 230);
   --sidebar-border: oklch(0.3 0.02 240);
   --sidebar-ring: oklch(0.65 0.15 240);
-  --success: oklch(0.6 0.15 155);
+  --success: #008D46;
   --success-foreground: oklch(0.99 0 0);
   --warning: oklch(0.75 0.15 75);
   --warning-foreground: oklch(0.25 0.05 75);
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
+  --font-sans: var(--font-raleway), sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);

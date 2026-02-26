@@ -16,10 +16,21 @@ import {
   Clock,
   User,
   MapPin,
-  BarChart3,
   ShieldCheck,
   Loader2,
+  AlertCircle,
+  BarChart3,
 } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -57,16 +68,21 @@ function formatCurrency(value: number | null | undefined) {
 export function InscricaoDetail({ inscricao }: { inscricao: Inscricao }) {
   const [updatingStatus, setUpdatingStatus] = useState<string | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [showRejectDialog, setShowRejectDialog] = useState(false)
+  const [rejectReason, setRejectReason] = useState("")
   const router = useRouter()
   const status = statusConfig[inscricao.status] ?? statusConfig.pendente
   const StatusIcon = status.icon
 
-  async function handleStatusChange(newStatus: string) {
+  async function handleStatusChange(newStatus: string, observacao?: string) {
     setUpdatingStatus(newStatus)
     const supabase = createClient()
+    const updateData: Record<string, string> = { status: newStatus }
+    if (observacao) updateData.observacoes = observacao
+
     const { error } = await supabase
       .from("inscricoes")
-      .update({ status: newStatus })
+      .update(updateData)
       .eq("id", inscricao.id)
 
     if (error) {
@@ -187,7 +203,7 @@ export function InscricaoDetail({ inscricao }: { inscricao: Inscricao }) {
               <Button
                 size="sm"
                 variant="outline"
-                onClick={() => handleStatusChange("rejeitado")}
+                onClick={() => { setRejectReason(""); setShowRejectDialog(true) }}
                 disabled={!!updatingStatus}
                 className="gap-1.5 text-destructive hover:bg-destructive/10"
               >
@@ -210,6 +226,38 @@ export function InscricaoDetail({ inscricao }: { inscricao: Inscricao }) {
           </div>
         </CardContent>
       </Card>
+
+      {/* Modal de motivo de rejeição */}
+      <Dialog open={showRejectDialog} onOpenChange={setShowRejectDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Rejeitar inscrição</DialogTitle>
+            <DialogDescription>
+              Informe o motivo da rejeição. Ele será salvo na inscrição e incluído no e-mail enviado ao cidadão.
+            </DialogDescription>
+          </DialogHeader>
+          <Textarea
+            placeholder="Motivo da rejeição (opcional)..."
+            value={rejectReason}
+            onChange={(e) => setRejectReason(e.target.value)}
+            rows={3}
+          />
+          <DialogFooter className="gap-2">
+            <Button variant="outline" onClick={() => setShowRejectDialog(false)}>
+              Cancelar
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={() => {
+                setShowRejectDialog(false)
+                handleStatusChange("rejeitado", rejectReason || undefined)
+              }}
+            >
+              Confirmar Rejeição
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       {/* Personal Data */}
       <Card>
