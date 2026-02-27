@@ -34,12 +34,14 @@ export default async function HomePage() {
             <ShieldCheck className="h-4 w-4" />
             Sistema Governamental
           </div>
-          <h1 className="flex items-center justify-center gap-3 text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">
+          <div className="flex justify-center mb-3">
             <img
               src="/icons8-brazil-48.png"
               alt="Bandeira do Brasil"
               className="h-10 w-10 md:h-12 md:w-12 rounded-full object-cover shadow-sm"
             />
+          </div>
+          <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground md:text-5xl">
             Cadastro de Programas Sociais
           </h1>
           <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
